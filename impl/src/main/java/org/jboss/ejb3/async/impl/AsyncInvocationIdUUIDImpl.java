@@ -68,7 +68,13 @@ public class AsyncInvocationIdUUIDImpl implements AsyncInvocationId, Serializabl
    @Override
    public boolean equals(final Object obj)
    {
-      return uuid.equals(obj);
+      if (this == obj) {
+          return true;
+      }
+      if (obj instanceof AsyncInvocationIdUUIDImpl) {
+          return uuid.equals(((AsyncInvocationIdUUIDImpl)obj).uuid);
+      }
+      return false;
    }
 
    /**
